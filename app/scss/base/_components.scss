@@ -1,0 +1,340 @@
+// ---------- Контейнер ----------
+.container {
+  width: 100%;
+  max-width: $container + 8rem;
+  margin: 0 auto;
+  padding: 0 4rem;
+
+  @media(max-width: 600px) {
+    padding: 0 2rem;
+  }
+}
+
+// ---------- Секції ----------
+.section {
+  padding: 12rem 0;
+
+  @media(max-width: 1024px) {
+    padding: 8rem 0;
+  }
+
+  @media(max-width: 600px) {
+    padding: 6rem 0;
+  }
+
+  &--pink {
+    background: $pink;
+  }
+
+  &--lilac {
+    background: $lilac;
+  }
+
+  &--no-top {
+    padding-top: 0;
+  }
+}
+
+// Невеликий підпис над заголовком
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: $text-muted;
+}
+
+.title {
+  font-size: 5.6rem;
+
+  @media(max-width: 1024px) {
+    font-size: 4.4rem;
+  }
+
+  @media(max-width: 600px) {
+    font-size: 3.4rem;
+  }
+
+  &--big {
+    font-size: 7.6rem;
+
+    @media(max-width: 1024px) {
+      font-size: 5.6rem;
+    }
+
+    @media(max-width: 600px) {
+      font-size: 4.2rem;
+    }
+  }
+
+  em {
+    font-style: italic;
+    font-weight: 400;
+  }
+}
+
+.text {
+  max-width: 60rem;
+  color: $text-muted;
+
+  p + p {
+    margin-top: 1.6rem;
+  }
+}
+
+// Заголовок секції + текст по центру
+.section-head {
+  max-width: 76rem;
+  margin: 0 auto 6rem;
+  text-align: center;
+
+  .text {
+    margin: 2.4rem auto 0;
+  }
+
+  @media(max-width: 600px) {
+    margin-bottom: 4rem;
+  }
+}
+
+// Тонкий розділювач
+.divider {
+  width: 8rem;
+  height: 1px;
+  margin: 3.2rem 0;
+  border: none;
+  background: $line;
+
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+// ---------- Кнопки ----------
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  min-height: 5.6rem;
+  padding: 1.6rem 3.6rem;
+  border: 1px solid $black;
+  background: $black;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: $white;
+  text-align: center;
+  transition: background $transition, color $transition, border-color $transition;
+
+  @include hover {
+    background: transparent;
+    color: $black;
+  }
+
+  &--light {
+    background: transparent;
+    color: $black;
+
+    @include hover {
+      background: $black;
+      color: $white;
+    }
+  }
+
+  @media(max-width: 600px) {
+    width: 100%;
+    padding: 1.6rem 2.4rem;
+  }
+}
+
+// Текстове посилання з тонкою лінією
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: .4rem;
+  border-bottom: 1px solid $line;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $black;
+  transition: border-color $transition, gap $transition;
+
+  &::after {
+    content: '→';
+  }
+
+  @include hover {
+    gap: 1.6rem;
+    border-color: $black;
+  }
+}
+
+// ---------- Фото ----------
+.photo {
+  position: relative;
+  overflow: hidden;
+  background: $pink;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Заглушка, поки немає фото
+  &--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $lilac;
+
+    span {
+      font-family: $title-font, serif;
+      font-size: 2.4rem;
+      font-style: italic;
+      color: $text-muted;
+    }
+  }
+}
+
+// ---------- Два стовпці: текст + фото ----------
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 10rem;
+
+  &__media .photo {
+    aspect-ratio: 4 / 5;
+  }
+
+  // фото зліва
+  &--reverse &__media {
+    order: -1;
+  }
+
+  @media(max-width: 1024px) {
+    gap: 6rem;
+  }
+
+  @media(max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+
+    &__media {
+      order: -1;
+    }
+
+    // на першому екрані фото нижче, щоб заголовок було видно одразу
+    &--hero &__media .photo {
+      aspect-ratio: 4 / 3;
+    }
+  }
+}
+
+// Шапка внутрішньої сторінки
+.page-head {
+  padding: 8rem 0 6rem;
+
+  .title {
+    max-width: 90rem;
+  }
+
+  .text {
+    margin-top: 2.4rem;
+  }
+
+  @media(max-width: 600px) {
+    padding: 4rem 0;
+  }
+}
+
+// ---------- Картка напрямку ----------
+.card {
+  display: block;
+
+  &__photo {
+    aspect-ratio: 3 / 4;
+    margin-bottom: 2.4rem;
+
+    img {
+      transition: transform .8s $ease;
+    }
+  }
+
+  &__title {
+    margin-bottom: 1.6rem;
+    font-size: 3rem;
+
+    @media(max-width: 600px) {
+      font-size: 2.6rem;
+    }
+  }
+
+  @include hover {
+    .card__photo img {
+      transform: scale(1.04);
+    }
+
+    .link {
+      gap: 1.6rem;
+      border-color: $black;
+    }
+  }
+}
+
+// Сітка карток: середня колонка трохи нижче — легка асиметрія
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6rem 4rem;
+
+  .card:nth-child(3n + 2) {
+    margin-top: 8rem;
+  }
+
+  @media(max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem 2.4rem;
+
+    .card:nth-child(3n + 2) {
+      margin-top: 0;
+    }
+  }
+
+  @media(max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 4.8rem;
+  }
+}
+
+// ---------- CTA-блок по центру ----------
+.cta {
+  text-align: center;
+
+  .title {
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  .text {
+    margin: 2.4rem auto 4rem;
+  }
+}
+
+// ---------- Поява при скролі ----------
+// Ховаємо лише коли JS підключився (клас .js на html)
+.js .reveal {
+  opacity: 0;
+  transform: translateY(3rem);
+  transition: opacity .9s $ease, transform .9s $ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

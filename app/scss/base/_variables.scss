@@ -1,0 +1,23 @@
+// Палітра з ТЗ: білий фон, ніжно-рожевий акцент, ліловий — дозовано
+$white: #FFFFFF;
+$pink: #F7E6ED;
+$lilac: #E8DDF2;
+
+// Нейтральні для тексту й ліній (не "кольори", а відтінки)
+$black: #2E2629;
+$text: #3A3236;
+$text-muted: #6B6066;
+$line: #E2CBD5;
+
+// Шрифти
+$title-font: 'Cormorant Garamond', 'Cormorant Fallback';
+$main-font: 'Inter', 'Inter Fallback';
+
+// Розміри
+$container: 136rem;
+$header-h: 8rem;
+$header-h-mob: 6.4rem;
+
+// Анімації
+$ease: cubic-bezier(.25, .6, .3, 1);
+$transition: .3s $ease;

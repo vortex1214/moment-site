@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="uk" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <title>Про студію — MOMENT</title>
+    <meta name="description" content="MOMENT — студія декору для тих, хто хоче наповнити особливі події красою та змістом.">
+    <!-- клас для анімацій появи ставимо до першого рендеру, інакше блоки стрибають -->
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="preload" href="fonts/cormorant-garamond-cyrillic-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-cyrillic-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="header">
+    <div class="container header__inner">
+        <a href="index.html" class="logo">MOMENT</a>
+        <nav class="nav js-nav-menu">
+            <ul class="nav__list">
+                <li><a href="index.html" class="nav__link">Головна</a></li>
+                <li><a href="about.html" class="nav__link is-active">Про студію</a></li>
+                <li><a href="catalog.html" class="nav__link">Напрямки</a></li>
+                <li><a href="contacts.html" class="nav__link">Контакти</a></li>
+            </ul>
+            <a href="https://www.instagram.com/Sofiia.lsl" class="btn nav__btn" target="_blank" rel="noopener">Написати нам</a>
+        </nav>
+        <button class="burger js-burger-btn" type="button" aria-label="Меню"><span></span></button>
+    </div>
+</header>
+
+<main>
+    <section class="about-hero">
+        <div class="container split split--hero">
+            <div class="reveal">
+                <span class="eyebrow">Про студію</span>
+                <h1 class="title title--big">Краса починається <em>з відчуття</em></h1>
+                <div class="text">
+                    <p>MOMENT — студія декору для тих, хто хоче наповнити особливі події красою та змістом.</p>
+                    <p>Ми віримо, що вдале оформлення — це не просто поєднання квітів, тканин і декорацій. Це атмосфера, яка відповідає людям, їхнім смакам та історіям.</p>
+                    <p>Саме тому для нас важливо не обмежуватися стандартними рішеннями. Кожна ідея може стати початком нового оформлення, а кожна деталь — частиною загального задуму.</p>
+                </div>
+            </div>
+            <div class="split__media reveal">
+                <div class="photo">
+                    <img src="img/wedding/IMG_2451.webp" alt="Сервірування столу з квітами та свічками" width="1200" height="1600">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--pink founder">
+        <div class="container split split--reverse">
+            <div class="reveal">
+                <h2 class="title">Привіт, я Софія</h2>
+                <div class="text">
+                    <p>Я заснувала MOMENT із бажанням створювати красу, яка має особисте значення для людей.</p>
+                    <p>Мені близький підхід, у якому важливі не лише зовнішній вигляд, а й настрій, гармонія та увага до деталей. Я хочу, щоб кожна людина могла побачити у своєму святі щось особливе — те, що відповідає саме їй.</p>
+                    <p>Для мене найцінніше в оформленні — можливість почути вашу ідею, знайти її візуальне втілення та разом створити атмосферу, до якої захочеться повертатися у спогадах.</p>
+                </div>
+            </div>
+            <div class="split__media founder__media reveal">
+                <!-- TODO: замінити на фото Софії -->
+                <div class="photo photo--empty">
+                    <span>Фото Софії</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--lilac">
+        <div class="container cta reveal">
+            <h2 class="title">У кожної історії свій настрій</h2>
+            <div class="text">
+                <p>Розкажіть нам про свою подію, і разом ми знайдемо оформлення, яке передасть її характер.</p>
+            </div>
+            <a href="contacts.html" class="btn">Поговорімо про ваше свято</a>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <div class="footer__about">
+                <a href="index.html" class="logo">MOMENT</a>
+                <p>Студія індивідуального оформлення свят і важливих подій.</p>
+            </div>
+            <div>
+                <p class="footer__caption">Сторінки</p>
+                <ul class="footer__list">
+                    <li><a href="about.html">Про студію</a></li>
+                    <li><a href="catalog.html">Напрямки</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="footer__caption">Зв’язатися</p>
+                <ul class="footer__list">
+                    <li><a href="https://www.instagram.com/Sofiia.lsl" target="_blank" rel="noopener">Instagram</a></li>
+                    <li><a href="tel:+380668423656">+38 066 842 36 56</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">© 2026 MOMENT — Event Decor Studio</div>
+    </div>
+</footer>
+
+<script src="js/index.js"></script>
+</body>
+</html>

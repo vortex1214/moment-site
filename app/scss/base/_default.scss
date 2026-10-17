@@ -1,0 +1,145 @@
+/* mixins */
+$colors-list: (
+  "black": $black,
+  "white": $white,
+  "pink": $pink,
+  "lilac": $lilac
+);
+
+
+@each $key,$val in $colors-list {
+  .#{$key}-txt {
+    color: $val !important;
+  }
+}
+
+@each $key,$val in $colors-list {
+  .#{$key}-bg {
+    background: $val !important;
+  }
+}
+
+// .fz16 = 1.6rem (16px при базі 10px). Менше 14 не використовуємо
+$fs: 100;
+@for $size from 14 through $fs {
+  .fz#{$size} {
+    font-size: #{$size * 0.1}rem;
+  }
+}
+
+@mixin customScrollbar($size, $thumbcolor, $bg) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+    background: $bg;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 1.2rem;
+    background: $thumbcolor;
+  }
+}
+
+// hover тільки там, де є миша — на телефоні стан не "залипає" після тапу
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+::selection {
+  background-color: $lilac;
+}
+
+::-moz-selection {
+  background-color: $lilac;
+}
+
+/*
+  База rem: 1rem = 10px на макеті 1920 і на мобільному 375.
+  max(10px, ...) — підлога, щоб 1rem ніколи не був меншим за 10px,
+  тому текст від 1.4rem завжди >= 14px.
+*/
+html {
+  background: $white;
+  color: $text;
+  line-height: 1.15;
+  font-family: $main-font, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-size: max(10px, calc(100vw / 1920 * 10));
+  scroll-behavior: smooth;
+  @include customScrollbar(8px, $line, rgba(0,0,0,0));
+}
+
+@media(max-width: 1300px){
+  html{
+    font-size: max(10px, calc(100vw / 1600 * 10));
+  }
+}
+
+@media(max-width: 1024px){
+  html{
+    font-size: max(10px, calc(100vw / 1200 * 10));
+  }
+}
+
+
+@media(max-width: 600px){
+  html{
+    font-size: max(10px, calc(100vw / 375 * 10));
+  }
+}
+
+body {
+  min-width: 32rem;
+  font-size: 1.7rem;
+  line-height: 1.65;
+  background: $white;
+
+  &.fixed {
+    overflow: hidden;
+  }
+
+  @media(max-width: 600px) {
+    font-size: 1.6rem;
+  }
+}
+
+main {
+  padding-top: $header-h;
+
+  @media(max-width: 1024px) {
+    padding-top: $header-h-mob;
+  }
+}
+
+// щоб якорі не ховались під фіксованим хедером
+[id] {
+  scroll-margin-top: $header-h;
+}
+
+h1, h2, h3 {
+  font-family: $title-font, serif;
+  font-weight: 500;
+  line-height: 1.1;
+  color: $black;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+  }
+}

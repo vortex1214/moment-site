@@ -1,0 +1,230 @@
+// Шаблон сторінки напрямку (весілля, день народження і т.д.)
+
+// ---------- Хлібні крихти ----------
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-bottom: 4rem;
+  font-size: 1.4rem;
+  color: $text-muted;
+
+  a {
+    transition: color $transition;
+
+    @include hover {
+      color: $black;
+    }
+  }
+
+  li + li::before {
+    content: '/';
+    margin-right: .8rem;
+  }
+
+  @media(max-width: 600px) {
+    margin-bottom: 2.4rem;
+  }
+}
+
+// ---------- Перший екран ----------
+.dir-hero {
+  padding: 6rem 0 12rem;
+
+  @media(max-width: 768px) {
+    padding: 2rem 0 6rem;
+  }
+
+  .text {
+    margin: 3.2rem 0 4.8rem;
+  }
+
+  .split__media .photo {
+    max-height: calc(100vh - #{$header-h} - 8rem);
+    min-height: 48rem;
+
+    @media(max-width: 768px) {
+      max-height: none;
+      min-height: 0;
+    }
+  }
+}
+
+// ---------- Можливості оформлення ----------
+.features {
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10rem;
+
+    @media(max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+  }
+
+  .text {
+    padding-top: 3.2rem;
+    border-top: 1px solid $line;
+    font-size: 1.9rem;
+
+    @media(max-width: 600px) {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+// ---------- Галерея ----------
+.gallery {
+  overflow: hidden;
+
+  &__head {
+    margin-bottom: 5rem;
+
+    @media(max-width: 600px) {
+      margin-bottom: 3.2rem;
+    }
+  }
+
+  // стрілки під слайдером
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1.2rem;
+    margin-top: 4rem;
+
+    @media(max-width: 600px) {
+      margin-top: 2.4rem;
+    }
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5.6rem;
+    height: 5.6rem;
+    border: 1px solid $black;
+    border-radius: 50%;
+    transition: background $transition, color $transition, opacity $transition;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    @include hover {
+      background: $black;
+      color: $white;
+    }
+
+    &.swiper-button-disabled {
+      opacity: .3;
+      pointer-events: none;
+    }
+  }
+
+  // показуємо краєчок наступного слайда справа,
+  // а зліва обрізаємо по краю контейнера
+  .swiper {
+    overflow: visible;
+    clip-path: inset(0 -100vw 0 0);
+  }
+
+  // ширина як після ініціалізації Swiper, щоб секція не змінювала висоту.
+  // тут px, бо вони дублюють spaceBetween / slidesPerView з index.js
+  &__slide {
+    width: calc((100% - 16px * 0.2) / 1.2);
+    margin-right: 16px;
+
+    @media(min-width: 601px) {
+      width: calc((100% - 24px * 1.2) / 2.2);
+      margin-right: 24px;
+    }
+
+    @media(min-width: 1025px) {
+      width: calc((100% - 32px * 2) / 3);
+      margin-right: 32px;
+    }
+  }
+
+  &__slide .photo {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+// ---------- Завершальний текст напрямку ----------
+.outro {
+  padding-top: 0;
+
+  .text {
+    max-width: 72rem;
+    margin: 0 auto 4rem;
+    font-family: $title-font, serif;
+    font-size: 3rem;
+    font-style: italic;
+    line-height: 1.35;
+    color: $black;
+    text-align: center;
+
+    @media(max-width: 600px) {
+      font-size: 2.4rem;
+    }
+  }
+
+  &__btn {
+    text-align: center;
+  }
+}
+
+// ---------- Вартість ----------
+.prices {
+  &__inner {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 10rem;
+
+    @media(max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 3.2rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2.4rem;
+    padding: 2.4rem 0;
+    border-bottom: 1px solid $line;
+
+    &:first-child {
+      border-top: 1px solid $line;
+    }
+
+    @media(max-width: 600px) {
+      flex-direction: column;
+      gap: .4rem;
+    }
+  }
+
+  &__name {
+    font-size: 1.8rem;
+    color: $text;
+  }
+
+  &__value {
+    flex-shrink: 0;
+    font-family: $title-font, serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    color: $black;
+    white-space: nowrap;
+  }
+
+  &__note {
+    margin-top: 2.4rem;
+    font-size: 1.4rem;
+    color: $text-muted;
+  }
+}

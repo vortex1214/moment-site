@@ -1,0 +1,71 @@
+// ---------- Перший екран ----------
+.hero {
+  padding: 6rem 0 12rem;
+
+  @media(max-width: 768px) {
+    padding: 2rem 0 6rem;
+  }
+
+  &__content {
+    .title {
+      max-width: 64rem;
+    }
+
+    .text {
+      margin: 3.2rem 0 4.8rem;
+    }
+  }
+
+  &__media {
+    position: relative;
+    padding: 0 0 4rem 4rem;
+
+    // рожева площина за фото
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 70%;
+      height: 80%;
+      background: $pink;
+    }
+
+    .photo {
+      max-height: calc(100vh - #{$header-h} - 10rem);
+      min-height: 48rem;
+      margin-left: auto;
+    }
+
+    @media(max-width: 768px) {
+      padding: 0 0 2rem 2rem;
+
+      .photo {
+        max-height: none;
+        min-height: 0;
+      }
+    }
+  }
+}
+
+// ---------- Про індивідуальність ----------
+.idea {
+  .text {
+    margin: 2.4rem 0 4rem;
+  }
+}
+
+// ---------- Засновниця ----------
+.founder {
+  &__media {
+    max-width: 52rem;
+
+    @media(max-width: 768px) {
+      max-width: none;
+    }
+  }
+
+  .text {
+    margin: 2.4rem 0 4rem;
+  }
+}

@@ -1,0 +1,12 @@
+// ---------- Про студію ----------
+.about-hero {
+  padding: 6rem 0 12rem;
+
+  @media(max-width: 768px) {
+    padding: 2rem 0 6rem;
+  }
+
+  .text {
+    margin-top: 3.2rem;
+  }
+}
